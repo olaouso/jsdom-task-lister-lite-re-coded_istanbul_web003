@@ -1,15 +1,29 @@
-document.addEventListener("DOMContentLoaded", () => {let tasks=[];
-  document.getElementById("create-task-form").addEventListener("submit", (e) => {
-    e.preventDefault();
-      tasks.push(document.getElementById("new-task-description").value);
-      let id = tasks.length;
+document.addEventListener('DOMContentLoaded', () => {});
+  // your code here	
+});	const form = document.getElementById('create-task-form');
+const tasks = document.getElementById('tasks');
 
-      document.getElementById("tasks").innerHTML +=` 
-      <li id= li${id}>
-      ${tasks[tasks.length-1]}
-      <button class = remove id = ${id}>Remove</button>
-    </li>`
 
-  })
 
-});
+form.addEventListener('submit', function (e) {
+  e.preventDefault()
+
+  const newTask = document.getElementById('new-task-description').value;
+
+
+  tasks.innerHTML += `<li>${newTask}
+  <button class='delete-item'>X</button>
+  </li>`
+
+  form.reset()
+})
+
+
+tasks.addEventListener('click' , function(e) {
+
+ const liDelete = document.querySelector('.delete-item')
+liDelete.onclick = e.target.parentElement.remove()
+
+
+
+}) 
