@@ -1,29 +1,18 @@
-document.addEventListener('DOMContentLoaded', () => {});
-  
-});	const form = document.getElementById('create-task-form');
-const tasks = document.getElementById('tasks');
+document.addEventListener("DOMContentLoaded", () => {
+  // your code here	  const newTaskDescription = document.querySelector("#new-task-description");
+  const newTaskForm = document.querySelector("#create-task-form");
+  const Ul = document.querySelector("#tasks");
 
 
-
-form.addEventListener('submit', function (e) {
-  e.preventDefault()
-
-  const newTask = document.getElementById('new-task-description').value;
-
-
-  tasks.innerHTML += `<li>${newTask}
-  <button class='delete-item'>X</button>
-  </li>`
-
-  form.reset()
-})
-
-
-tasks.addEventListener('click' , function(e) {
-
- const liDelete = document.querySelector('.delete-item')
-liDelete.onclick = e.target.parentElement.remove()
-
-
-
-}) 
+  newTaskForm.addEventListener("submit", (e) => {
+    const Li = document.createElement("li");
+    const RemoveButton = document.createElement("button");
+    e.preventDefault();
+    Ul.appendChild(Li).innerText = newTaskDescription.value;
+    Li.appendChild(RemoveButton).innerHTML = "X";
+    RemoveButton.addEventListener("click", () => {
+      RemoveButton.parentElement.remove();
+    })
+    e.target.reset();
+  });
+});
