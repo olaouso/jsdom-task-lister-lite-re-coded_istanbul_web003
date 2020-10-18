@@ -1,7 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
-  
-
-   let tasks=[];
+document.addEventListener("DOMContentLoaded", () => {let tasks=[];
   document.getElementById("create-task-form").addEventListener("submit", (e) => {
     e.preventDefault();
       tasks.push(document.getElementById("new-task-description").value);
@@ -14,4 +11,5 @@ document.addEventListener("DOMContentLoaded", () => {
     </li>`
 
   })
-}
+
+});
